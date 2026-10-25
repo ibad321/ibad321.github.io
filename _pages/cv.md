@@ -9,56 +9,20 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<a href="{{ base_path }}/files/Ibad_Ullah_CV.pdf" class="btn btn--primary">Download PDF CV</a>
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+## Education
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+<!-- TODO: add dates for the MS and BS degrees from the CV (not yet provided) -->
+* PhD, College of Intelligence and Computing, Tianjin University (2026 – present)
+* Postgraduate Diploma in Professional Ethics & Teaching Methodology, Riphah International University, Islamabad (2025 – 2026), CGPA 3.65
+* MS Software Engineering, COMSATS University
+* BS Software Engineering, CECOS University
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+## Experience
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+<!-- TODO: add dates for the Codesolution and Fasitech roles, and the Fiverr entry, from the CV (not yet provided) -->
+* Research Assistant, Riphah International University, Malakand Campus (Mar 2025 – Sep 2026)
+* Mobile Application Developer, Codesolution (Best Employee award)
+* Mobile Application Developer, Fasitech Solutions
+* Intern, EncoderBytes (Mar – Aug 2022)
