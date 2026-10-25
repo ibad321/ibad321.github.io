@@ -22,22 +22,22 @@ repository               : "ibad321/ibad321.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png" # TODO: replace images/profile.png with the cropped 400x400 photo (not yet provided)
+  avatar           : "profile.png"
   name             : "Ibad Ullah"
   pronouns         :
   bio              : "PhD Student, College of Intelligence and Computing, Tianjin University"
   location         : "Tianjin, China"
   employer         : "Tianjin University"
   uri              :
-  email            : # TODO: add email address from CV (not found in the repo; CV PDF not yet provided)
+  email            : "ibadcui@gmail.com"
 
   # Academic websites
   academia         :
   arxiv            :
-  googlescholar    : # TODO: add Google Scholar profile URL from CV
+  googlescholar    : "https://scholar.google.com/citations?user=NlM4088AAAAJ&hl=en"
   inspire-hep      :
   impactstory      :
-  orcid            : # TODO: add ORCID URL from CV (e.g. https://orcid.org/0000-0000-0000-0000)
+  orcid            : # TODO: ORCID is not listed in the CV; add https://orcid.org/... if you have one
   semantic         :
   ssrn             :
   pubmed           :
@@ -65,7 +65,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # TODO: add LinkedIn username from CV (not yet provided)
+  linkedin         : "ibad321"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
