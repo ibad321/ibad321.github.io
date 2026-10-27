@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Home"
 title_separator          : "-"
 name                     : &name "Ibad Ullah"
-description              : &description "Ibad Ullah's academic homepage: PhD student at Tianjin University"
+description              : &description "Ibad Ullah's academic homepage"
 url                      : https://ibad321.github.io # The base hostname & protocol for your site
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ibad321/ibad321.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "profile.png"
   name             : "Ibad Ullah"
   pronouns         :
-  bio              : "PhD Student, College of Intelligence and Computing, Tianjin University"
+  bio              : "Researcher in Software Engineering"
   location         : "Tianjin, China"
   employer         : "Tianjin University"
   uri              :
