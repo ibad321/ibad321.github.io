@@ -25,4 +25,34 @@
   })();
 </script>
 
+<!-- Drag to rotate the 3D cube on the About page -->
+<script>
+  (function () {
+    var cube = document.querySelector('.cube');
+    if (!cube) return;
+    var rx = -14, ry = 0, dragging = false, lx = 0, ly = 0;
+    cube.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      lx = e.clientX;
+      ly = e.clientY;
+      cube.classList.add('is-dragging');
+      cube.setPointerCapture(e.pointerId);
+    });
+    cube.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      ry += (e.clientX - lx) * 0.6;
+      rx -= (e.clientY - ly) * 0.4;
+      lx = e.clientX;
+      ly = e.clientY;
+      cube.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    });
+    function stop() {
+      dragging = false;
+      cube.classList.remove('is-dragging');
+    }
+    cube.addEventListener('pointerup', stop);
+    cube.addEventListener('pointercancel', stop);
+  })();
+</script>
+
 <!-- end custom footer snippets -->

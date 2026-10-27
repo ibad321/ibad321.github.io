@@ -7,6 +7,19 @@ redirect_from:
   - /about.html
 ---
 
+<div class="cube-stage" aria-label="Site sections, drag to rotate">
+  <div class="cube">
+    <div class="cube__face cube__face--front">
+      <img src="/images/profile.png" alt="Ibad Ullah">
+    </div>
+    <a class="cube__face cube__face--right" href="/publications/"><span class="cube__num">9</span><span class="cube__label">Papers</span></a>
+    <a class="cube__face cube__face--back" href="/cv/"><span class="cube__num">CV</span><span class="cube__label">Education</span></a>
+    <a class="cube__face cube__face--left" href="/projects/"><span class="cube__num">8</span><span class="cube__label">Projects</span></a>
+    <a class="cube__face cube__face--top" href="/talks/"><span class="cube__num">1</span><span class="cube__label">Talk</span></a>
+    <a class="cube__face cube__face--bottom" href="/awards/"><span class="cube__num">4</span><span class="cube__label">Awards</span></a>
+  </div>
+</div>
+
 <div class="bento">
 
   <div class="tile tile--wide tile--tall tile--intro">
