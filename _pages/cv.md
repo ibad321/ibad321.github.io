@@ -13,7 +13,7 @@ redirect_from:
 
 ## Education
 
-* PhD, College of Intelligence and Computing, Tianjin University (2026 – present)
+* PhD, College of Intelligence and Computing (2026 – present)
 * Postgraduate Diploma in Professional Ethics & Teaching Methodology, Riphah International University, Islamabad (2025 – 2026), CGPA 3.65
 * MS Software Engineering, COMSATS University Islamabad (2025), GPA 3.46 / 4.00
 * BS Software Engineering, CECOS University of IT and Emerging Sciences, Peshawar (Sep 2022), GPA 3.22 / 4.00

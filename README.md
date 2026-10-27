@@ -1,6 +1,6 @@
 # Ibad Ullah's Homepage
 
-Academic homepage for Ibad Ullah, PhD student at the College of Intelligence and Computing, Tianjin University.
+Academic homepage for Ibad Ullah, PhD student at the College of Intelligence and Computing.
 
 Live site: https://ibad321.github.io
 

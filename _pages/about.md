@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-<p class="lead">I am a PhD student in the College of Intelligence and Computing at Tianjin University, China. My research covers deep learning, federated learning and privacy-preserving machine learning, with applications to medical imaging, large language models (LLMs) and software engineering.</p>
+<p class="lead">I am a PhD student in the College of Intelligence and Computing, China. My research covers deep learning, federated learning and privacy-preserving machine learning, with applications to medical imaging, large language models (LLMs) and software engineering.</p>
 
 Previously, I was a Research Assistant at Riphah International University, Malakand Campus. I also hold an MS in Software Engineering from COMSATS University Islamabad.
 
@@ -24,7 +24,7 @@ Previously, I was a Research Assistant at Riphah International University, Malak
 
 ## Recent news
 
-* **2026:** Joined the PhD program in the College of Intelligence and Computing, Tianjin University.
+* **2026:** Joined the PhD program in the College of Intelligence and Computing.
 * **June 2026:** Paper published in *Frontiers in Immunology*.
 * **2025:** Paper published at INMIC 2025 (IEEE Xplore).
 
