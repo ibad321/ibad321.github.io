@@ -1,238 +1,220 @@
 /* ==========================================================================
-   CUSTOM LAYER - modern accent palette, cards and hero
-   Loaded last so it overrides the theme. Colors go through the theme's own
-   CSS variables, so the light/dark toggle keeps working.
+   CUSTOM LAYER - editorial look
+   Warm paper background, serif headings, one burnt-orange accent, numbered
+   section headings. Flat surfaces only. Colors are set through the theme's
+   CSS variables so the light/dark toggle keeps working.
    ========================================================================== */
 
 :root {
-    --ui-accent        : #6366f1;
-    --ui-accent-2      : #a855f7;
-    --ui-accent-3      : #22d3ee;
-    --ui-gradient      : linear-gradient(135deg, #6366f1 0%, #a855f7 55%, #22d3ee 100%);
-    --ui-card-bg       : #ffffff;
-    --ui-card-border   : rgba(15, 23, 42, 0.08);
-    --ui-card-shadow   : 0 10px 30px -12px rgba(30, 41, 59, 0.18);
-    --ui-glass-bg     : rgba(255, 255, 255, 0.72);
+    --paper      : #faf7f2;
+    --card       : #ffffff;
+    --line       : #e7e1d6;
+    --ink        : #1f1b16;
+    --muted      : #6b645a;
+    --accent     : #c2410c;
+    --accent-hi  : #9a3412;
+    --serif      : "Fraunces", Georgia, "Times New Roman", serif;
+    --sans       : "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-    --global-base-color        : #6366f1;
-    --global-link-color        : #4f46e5;
-    --global-link-color-hover  : #a855f7;
-    --global-link-color-visited: #7c3aed;
-    --global-text-color        : #1e293b;
-    --global-footer-bg-color   : #f8fafc;
+    --global-bg-color           : var(--paper);
+    --global-text-color         : var(--ink);
+    --global-base-color         : var(--accent);
+    --global-link-color         : var(--accent);
+    --global-link-color-hover   : var(--accent-hi);
+    --global-link-color-visited : var(--accent-hi);
+    --global-border-color       : var(--line);
+    --global-footer-bg-color    : #f3efe7;
+    --global-masthead-link-color: var(--ink);
+    --global-masthead-link-color-hover: var(--accent);
+    --global-thead-color        : #f3efe7;
+    --global-code-background-color: #f3efe7;
 }
 
 html[data-theme="dark"] {
-    --ui-card-bg       : #111827;
-    --ui-card-border   : rgba(148, 163, 184, 0.16);
-    --ui-card-shadow   : 0 10px 30px -12px rgba(0, 0, 0, 0.6);
-    --ui-glass-bg      : rgba(11, 15, 30, 0.7);
+    --paper      : #161412;
+    --card       : #1f1c18;
+    --line       : #352f27;
+    --ink        : #f3eee6;
+    --muted      : #a79e91;
+    --accent     : #fb923c;
+    --accent-hi  : #fdba74;
 
-    --global-base-color        : #818cf8;
-    --global-link-color        : #a5b4fc;
-    --global-link-color-hover  : #f0abfc;
-    --global-link-color-visited: #c4b5fd;
-    --global-bg-color          : #0b0f1e;
-    --global-text-color        : #e2e8f0;
-    --global-footer-bg-color   : #0b0f1e;
+    --global-bg-color           : var(--paper);
+    --global-text-color         : var(--ink);
+    --global-footer-bg-color    : #1f1c18;
+    --global-thead-color        : #1f1c18;
+    --global-code-background-color: #1f1c18;
 }
 
-/* Soft colored glows behind the page */
 html {
-    background-color: var(--global-bg-color);
-    background-image:
-        radial-gradient(900px 500px at 0% -10%, rgba(99, 102, 241, 0.14), transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, rgba(168, 85, 247, 0.12), transparent 60%);
-    background-attachment: fixed;
+    background-color: var(--paper);
 }
 
 body {
-    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--sans);
+    color: var(--ink);
     background: transparent;
 }
 
+p {
+    line-height: 1.7;
+}
+
+/* ---------- Headings ---------- */
 h1, h2, h3, h4 {
+    font-family: var(--serif);
+    color: var(--ink);
     letter-spacing: -0.01em;
 }
 
-/* Gradient page titles */
-.page__title,
-.archive__title {
-    background: var(--ui-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.page__title {
+    font-size: 3em;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
 }
 
-/* Glass header with a gradient hairline underneath */
+.page__content {
+    counter-reset: section;
+}
+
+/* Numbered section headings: 01, 02, 03 ... */
+.page__content h2 {
+    counter-increment: section;
+    margin-top: 1.8em;
+    padding-bottom: 0.35em;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.page__content h2::before {
+    content: counter(section, decimal-leading-zero);
+    margin-right: 0.7em;
+    font-family: var(--sans);
+    font-size: 0.5em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    vertical-align: middle;
+}
+
+/* Lead paragraph under the page title */
+.lead {
+    font-family: var(--serif);
+    font-size: 1.3em;
+    line-height: 1.55;
+    color: var(--ink);
+}
+
+/* ---------- Header ---------- */
 .masthead {
-    background: var(--ui-glass-bg);
-    backdrop-filter: saturate(160%) blur(14px);
-    -webkit-backdrop-filter: saturate(160%) blur(14px);
-    border-bottom: 1px solid transparent;
-    background-image: linear-gradient(var(--ui-glass-bg), var(--ui-glass-bg)), var(--ui-gradient);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-.masthead__menu-item a,
 .site-title {
+    font-family: var(--serif);
     font-weight: 600;
 }
 
 .masthead__menu-item--lg a {
-    border-radius: 999px;
-    padding: 0.4em 0.85em;
-    transition: background 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
-.masthead__menu-item--lg a:hover {
-    background: rgba(99, 102, 241, 0.12);
-}
-
-/* Sidebar profile card */
+/* ---------- Sidebar profile ---------- */
 .sidebar {
-    background: var(--ui-card-bg);
-    border: 1px solid var(--ui-card-border);
-    border-radius: 20px;
-    box-shadow: var(--ui-card-shadow);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
     padding: 1.5em 1.25em;
+    box-shadow: none;
+    transform: none;
 }
 
 .author__avatar {
-    background: var(--ui-gradient);
-    border-radius: 50%;
-    padding: 4px;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .author__avatar img {
-    border: 4px solid var(--ui-card-bg);
+    border: 1px solid var(--line);
     border-radius: 50%;
 }
 
 .author__name {
-    background: var(--ui-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 800;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--ink);
+    background: none;
 }
 
-.author__urls a {
-    border-radius: 999px;
-}
-
-.author__urls .btn--inverse {
-    background: var(--ui-gradient);
+/* ---------- Buttons ---------- */
+.btn--primary,
+a.button {
+    display: inline-block;
+    padding: 0.6em 1.1em;
     border: 0;
+    border-radius: 6px;
+    background: var(--accent);
     color: #fff;
-    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: none;
 }
 
-/* Cards for list items (publications, talks, news) */
+.btn--primary:hover,
+a.button:hover {
+    background: var(--accent-hi);
+    color: #fff;
+}
+
+/* ---------- Lists (publications, news) as rows ---------- */
 .archive__item {
-    background: var(--ui-card-bg);
-    border: 1px solid var(--ui-card-border);
-    border-radius: 16px;
-    box-shadow: var(--ui-card-shadow);
-    padding: 1.1em 1.4em;
-    margin-bottom: 1.1em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.archive__item:hover {
-    transform: translateY(-3px);
-    border-color: rgba(99, 102, 241, 0.35);
-    box-shadow: 0 18px 40px -16px rgba(99, 102, 241, 0.35);
+    padding: 1.1em 0;
+    margin: 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .archive__item-title {
-    font-size: 1.15em;
+    font-family: var(--serif);
+    font-size: 1.2em;
+    font-weight: 600;
     line-height: 1.35;
-    margin-bottom: 0.4em;
 }
 
-/* Section headings with a gradient rule */
-.archive > h2,
-.page h2 {
-    position: relative;
-    padding-bottom: 0.35em;
-}
-
-.archive > h2::after,
-.page h2::after {
-    content: "";
-    display: block;
-    width: 56px;
-    height: 3px;
-    border-radius: 3px;
-    margin-top: 0.35em;
-    background: var(--ui-gradient);
-}
-
-/* Buttons */
-.btn--primary,
-.btn--inverse {
-    border-radius: 999px;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.btn--primary {
-    background: var(--ui-gradient);
-    border: 0;
-    color: #fff;
-    box-shadow: 0 8px 22px -8px rgba(99, 102, 241, 0.7);
-}
-
-.btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px -8px rgba(168, 85, 247, 0.7);
-    color: #fff;
-}
-
-/* Footer */
+/* ---------- Footer ---------- */
 .page__footer {
-    border-top: 1px solid transparent;
-    background-image: linear-gradient(var(--global-footer-bg-color), var(--global-footer-bg-color)), var(--ui-gradient);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    border-top-width: 2px;
+    border-top: 1px solid var(--line);
+    background: var(--global-footer-bg-color);
 }
 
-/* Keep the profile photo round on small screens */
-@media (max-width: 600px) {
-    .author__avatar {
-        width: 84px;
-        height: 84px;
-        float: left;
-        margin-right: 1em;
-    }
-
-    .author__avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-}
-
-/* ---------- Desktop layout fix ----------
-   The theme pins the sidebar and footer with position: fixed, so they sit on
-   top of the page content. Keep the sidebar sticky beside the content and let
-   the footer flow at the bottom of the page. */
+/* ---------- Layout: sidebar and content side by side on desktop ----------
+   The theme pins the sidebar and footer with position: fixed on wide screens,
+   which lets them cover the content. Use a two-column grid instead. */
 @media screen and (min-width: $sidebar-screen-min-width) {
-    /* Two columns: fixed profile sidebar, flexible content */
     #main {
         display: grid;
         grid-template-columns: 240px minmax(0, 1fr);
-        column-gap: 2.5rem;
-        max-width: 1180px;
+        column-gap: 3rem;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: calc(#{$masthead-height} + 1.25em) 1.5rem 0;
+        padding: calc(#{$masthead-height} + 2em) 1.5rem 0;
     }
 
     .sidebar {
         position: sticky;
-        top: calc(#{$masthead-height} + 1.25em);
+        top: calc(#{$masthead-height} + 2em);
         align-self: start;
         float: none;
         width: auto;
@@ -255,417 +237,21 @@ h1, h2, h3, h4 {
     }
 }
 
-/* ---------- Bento grid (About page) ----------
-   Tiles of different sizes on a 4-column grid, one accent color. */
-.bento {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: minmax(130px, auto);
-    gap: 14px;
-    margin: 1.25em 0 2em;
-}
-
-.tile {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.25em 1.35em;
-    border-radius: 22px;
-    background: var(--ui-card-bg);
-    border: 1px solid var(--ui-card-border);
-    box-shadow: var(--ui-card-shadow);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-
-
-.tile h3 {
-    margin: 0 0 0.5em;
-    font-size: 0.78em;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.65;
-}
-
-.tile p {
-    margin: 0.4em 0 0;
-}
-
-.tile--wide {
-    grid-column: span 2;
-}
-
-.tile--tall {
-    grid-row: span 2;
-}
-
-.tile--intro,
-.tile--explore {
-    justify-content: flex-start;
-    gap: 0.6em;
-}
-
-.tile--intro p {
-    font-size: 1.02em;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-.bento__eyebrow {
-    display: inline-block;
-    align-self: flex-start;
-    padding: 0.3em 0.9em;
-    border-radius: 999px;
-    font-size: 0.8em;
-    font-weight: 600;
-    color: var(--ui-accent);
-    background: rgba(99, 102, 241, 0.1);
-}
-
-.bento__title {
-    margin: 0.2em 0 0.2em;
-    font-size: 2.5em;
-    font-weight: 800;
-    line-height: 1.1;
-}
-
-.bento__title .grad {
-    background: var(--ui-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.tile--accent {
-    background: var(--ui-gradient);
-    border: 0;
-    color: #fff;
-    box-shadow: 0 16px 36px -14px rgba(99, 102, 241, 0.7);
-}
-
-.tile--accent h3,
-.tile--accent p {
-    color: #fff;
-    opacity: 0.9;
-}
-
-.tile--accent .tile__button {
-    text-decoration: none !important;
-}
-
-.tile__button {
-    display: inline-block;
-    align-self: flex-start;
-    margin-top: 0.8em;
-    padding: 0.55em 1.1em;
-    border-radius: 999px;
-    background: #fff;
-    color: #4f46e5;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.tile__num {
-    font-size: 2.1em;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--ui-accent);
-    white-space: nowrap;
-}
-
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-}
-
-.chips span {
-    padding: 0.4em 0.9em;
-    border-radius: 999px;
-    font-size: 0.9em;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--ui-accent);
-    font-weight: 500;
-}
-
-.tile--news ul {
-    margin: 0;
-    padding-left: 1.1em;
-}
-
-.tile--news li {
-    margin-bottom: 0.4em;
-}
-
-.tile a {
-    font-weight: 600;
-}
-
-.explore-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-}
-
-.explore-links a {
-    padding: 0.5em 1em;
-    border-radius: 999px;
-    border: 1px solid var(--ui-card-border);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.explore-links a:hover {
-    border-color: rgba(99, 102, 241, 0.5);
-    color: var(--ui-accent);
-}
-
-@media (max-width: 760px) {
-    .bento {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 600px) {
+    .page__title {
+        font-size: 2.2em;
     }
 
-    .bento__title {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .bento {
-        grid-template-columns: 1fr;
+    .author__avatar {
+        width: 84px;
+        height: 84px;
+        float: left;
+        margin-right: 1em;
     }
 
-    .tile--wide,
-    .tile--tall {
-        grid-column: span 1;
-        grid-row: auto;
-    }
-}
-
-/* ---------- 3D portfolio ----------
-   Tiles sit on a perspective stage, tilt toward the pointer (script in
-   _includes/footer/custom.html), lift off the page and show a glare that
-   follows the cursor. Touch screens and reduced-motion users get flat cards. */
-.bento {
-    perspective: 1400px;
-    gap: 22px;
-    padding: 0.5em 0 1em;
-}
-
-.tile {
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease, border-color 0.3s ease;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        0 2px 4px rgba(15, 23, 42, 0.06),
-        0 22px 40px -20px rgba(15, 23, 42, 0.32);
-}
-
-.tile:hover {
-    border-color: rgba(99, 102, 241, 0.35);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        0 4px 8px rgba(15, 23, 42, 0.08),
-        0 40px 70px -28px rgba(79, 70, 229, 0.45);
-}
-
-/* Content floats slightly in front of the tile */
-.tile > * {
-    transform: translateZ(28px);
-}
-
-/* Glare that follows the pointer */
-.tile::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.28), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.tile:hover::after {
-    opacity: 1;
-}
-
-.tile--accent::after {
-    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.35), transparent 50%);
-}
-
-a.tile {
-    color: inherit;
-    text-decoration: none;
-}
-
-.tile--featured strong {
-    display: block;
-    margin-top: 0.2em;
-    font-size: 1.3em;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-}
-
-.tile__link {
-    align-self: flex-start;
-    margin-top: 0.6em;
-    font-weight: 700;
-    color: var(--ui-accent);
-}
-
-/* Profile photo floats and tilts on hover */
-.sidebar {
-    transform-style: preserve-3d;
-    transition: box-shadow 0.4s ease;
-    box-shadow: 0 30px 60px -30px rgba(15, 23, 42, 0.35);
-}
-
-.sidebar .author__avatar {
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.6s ease;
-    box-shadow: 0 18px 30px -12px rgba(99, 102, 241, 0.55);
-}
-
-.sidebar:hover .author__avatar {
-    transform: rotateY(-16deg) rotateX(8deg) translateZ(18px);
-    box-shadow: 0 30px 40px -14px rgba(168, 85, 247, 0.6);
-}
-
-/* Flat cards for touch screens and users who prefer less motion */
-@media (hover: none), (prefers-reduced-motion: reduce) {
-    .tile,
-    .tile > *,
-    .sidebar .author__avatar {
-        transform: none !important;
-        transition: none;
-    }
-
-    .tile::after {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .bento {
-        gap: 14px;
-    }
-}
-
-/* ---------- 3D glass cube (About page) ----------
-   Six faces: photo on the front, links to the other sections on the rest.
-   Auto-spins; pauses on hover; drag to turn (script in footer/custom.html). */
-.cube-stage {
-    --s: 220px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 330px;
-    margin: 0.5em 0 1em;
-    perspective: 1000px;
-}
-
-.cube-stage::after {
-    content: "";
-    position: absolute;
-    bottom: 14px;
-    width: var(--s);
-    height: 26px;
-    border-radius: 50%;
-    background: radial-gradient(rgba(79, 70, 229, 0.35), transparent 70%);
-    filter: blur(6px);
-}
-
-.cube {
-    position: relative;
-    width: var(--s);
-    height: var(--s);
-    transform-style: preserve-3d;
-    transform: rotateX(-14deg);
-    animation: cube-spin 24s linear infinite;
-    cursor: grab;
-}
-
-.cube.is-dragging {
-    cursor: grabbing;
-    animation: none;
-}
-
-.cube:hover {
-    animation-play-state: paused;
-}
-
-@keyframes cube-spin {
-    from { transform: rotateX(-14deg) rotateY(0deg); }
-    to   { transform: rotateX(-14deg) rotateY(360deg); }
-}
-
-.cube__face {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    background: linear-gradient(150deg, rgba(99, 102, 241, 0.92), rgba(168, 85, 247, 0.88) 55%, rgba(34, 211, 238, 0.82));
-    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.18);
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    overflow: hidden;
-}
-
-.cube__face--front { transform: translateZ(calc(var(--s) / 2)); padding: 0; background: none; border: 0; box-shadow: none; }
-.cube__face--back  { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
-.cube__face--right { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
-.cube__face--left  { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
-.cube__face--top   { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
-.cube__face--bottom{ transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
-
-.cube__face--front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.18);
-}
-
-.cube__num {
-    font-size: 2.6em;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.cube__label {
-    margin-top: 0.4em;
-    font-size: 0.78em;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.9;
-}
-
-a.cube__face:hover {
-    filter: brightness(1.08);
-}
-
-@media (max-width: 480px) {
-    .cube-stage {
-        --s: 170px;
-        height: 260px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .cube {
-        animation: none;
-        transform: rotateX(-14deg) rotateY(-30deg);
+    .author__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
