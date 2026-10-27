@@ -7,47 +7,69 @@ redirect_from:
   - /about.html
 ---
 
-<section class="hero">
-  <span class="hero__eyebrow">PhD Student · Tianjin University, China</span>
-  <h1 class="hero__title">Hi, I'm <span class="grad">Ibad Ullah</span></h1>
-  <p class="hero__lead">I work on deep learning and federated learning for medical imaging, and I'm now exploring Vision-Language-Action (VLA) models.</p>
-  <div class="hero__cta">
-    <a class="primary" href="/files/Ibad_Ullah_CV.pdf">Download CV</a>
-    <a href="/publications/">Publications</a>
-    <a href="https://scholar.google.com/citations?user=NlM4088AAAAJ&hl=en">Google Scholar</a>
-    <a href="/talks/">Talks</a>
+<div class="bento">
+
+  <div class="tile tile--wide tile--tall tile--intro">
+    <span class="bento__eyebrow">PhD Student · Tianjin University, China</span>
+    <h1 class="bento__title">Hi, I'm <span class="grad">Ibad Ullah</span></h1>
+    <p>I am a PhD student in the College of Intelligence and Computing at Tianjin University, China. My research covers deep learning, federated learning and privacy-preserving machine learning, with applications to medical imaging and, more recently, Vision-Language-Action (VLA) models.</p>
+    <p>Previously, I was a Research Assistant at Riphah International University, Malakand Campus. I also hold an MS in Software Engineering from COMSATS University Islamabad.</p>
   </div>
-  <div class="hero__stats">
-    <div><strong>9</strong><span>papers published or presented</span></div>
-    <div><strong>4</strong><span>manuscripts under review</span></div>
-    <div><strong>2026</strong><span>PhD started, Tianjin</span></div>
-    <div><strong>INMIC</strong><span>2025, IEEE Xplore</span></div>
+
+  <div class="tile tile--accent tile--cv">
+    <h3>Curriculum vitae</h3>
+    <p>Education, experience and service.</p>
+    <a class="tile__button" href="/files/Ibad_Ullah_CV.pdf">Download PDF CV</a>
   </div>
-</section>
 
-I am a PhD student in the College of Intelligence and Computing at Tianjin University, China. My research covers deep learning, federated learning and privacy-preserving machine learning, with applications to medical imaging and, more recently, Vision-Language-Action (VLA) models.
+  <div class="tile tile--stat">
+    <h3>Papers</h3>
+    <div class="tile__num">9</div>
+    <p>published or presented</p>
+  </div>
 
-Previously, I was a Research Assistant at Riphah International University, Malakand Campus. I also hold an MS in Software Engineering from COMSATS University Islamabad.
+  <div class="tile tile--stat">
+    <h3>Under review</h3>
+    <div class="tile__num">4</div>
+    <p>manuscripts</p>
+  </div>
 
-## Research Interests
+  <div class="tile tile--stat">
+    <h3>PhD</h3>
+    <div class="tile__num">2026</div>
+    <p>started at Tianjin University</p>
+  </div>
 
-* Deep learning
-* Federated learning
-* Privacy-preserving machine learning
-* Medical imaging
-* Vision-Language-Action (VLA) models
+  <div class="tile tile--wide tile--interests">
+    <h3>Research interests</h3>
+    <div class="chips">
+      <span>Deep learning</span>
+      <span>Federated learning</span>
+      <span>Privacy-preserving ML</span>
+      <span>Medical imaging</span>
+      <span>Vision-Language-Action (VLA) models</span>
+    </div>
+  </div>
 
-## Recent News
+  <div class="tile tile--wide tile--news">
+    <h3>Recent news</h3>
+    <ul>
+      <li><strong>2026:</strong> Joined the PhD program at Tianjin University.</li>
+      <li><strong>June 2026:</strong> Paper published in <em>Frontiers in Immunology</em>.</li>
+      <li><strong>2025:</strong> Paper published at INMIC 2025 (IEEE Xplore).</li>
+    </ul>
+    <a href="/news/">All news →</a>
+  </div>
 
-* **2026:** Joined the PhD program in the College of Intelligence and Computing, Tianjin University.
-* **June 2026:** Paper published in *Frontiers in Immunology*.
-* **2025:** Paper published at INMIC 2025 (IEEE Xplore).
+  <div class="tile tile--wide tile--explore">
+    <h3>Explore</h3>
+    <div class="explore-links">
+      <a href="/publications/">Publications</a>
+      <a href="/projects/">Projects</a>
+      <a href="/talks/">Talks</a>
+      <a href="/awards/">Awards</a>
+      <a href="/cv/">CV</a>
+    </div>
+  </div>
 
-<div class="explore">
-  <a href="/news/">News<span>Latest updates</span></a>
-  <a href="/publications/">Publications<span>9 papers, 4 under review</span></a>
-  <a href="/projects/">Projects<span>Vision, federated and NLP work</span></a>
-  <a href="/talks/">Talks<span>INMIC 2025</span></a>
-  <a href="/awards/">Awards<span>Grants and recognition</span></a>
-  <a href="/cv/">CV<span>Education and experience</span></a>
 </div>
