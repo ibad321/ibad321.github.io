@@ -347,14 +347,33 @@ h1, h2, h3, h4 {
    top of the page content. Keep the sidebar sticky beside the content and let
    the footer flow at the bottom of the page. */
 @media screen and (min-width: $sidebar-screen-min-width) {
+    /* Two columns: fixed profile sidebar, flexible content */
+    #main {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        column-gap: 2.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: calc(#{$masthead-height} + 1.25em) 1.5rem 0;
+    }
+
     .sidebar {
         position: sticky;
         top: calc(#{$masthead-height} + 1.25em);
+        align-self: start;
+        float: none;
+        width: auto;
+        max-width: none;
         height: auto;
-        max-height: calc(100vh - #{$masthead-height} - 2.5em);
-        overflow-y: auto;
+        overflow: visible;
         padding-top: 1.5em;
-        margin-top: calc(#{$masthead-height} + 1.25em);
+    }
+
+    .page {
+        float: none;
+        width: auto;
+        margin: 0;
+        min-width: 0;
     }
 
     .page__footer {
