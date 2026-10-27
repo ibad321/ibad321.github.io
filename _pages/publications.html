@@ -11,10 +11,6 @@ author_profile: true
 
 {% include base_path %}
 
-<figure class="page-figure">
-  <img src="{{ base_path }}/images/under-review.png" alt="Summary of papers under review" loading="lazy">
-</figure>
-
 <!-- New style rendering if publication categories are defined -->
 {% assign pubs = site.publications | sort: "year" | reverse %}
 
