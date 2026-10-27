@@ -3,4 +3,26 @@
 <!-- Support for MathJax -->
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 
+<!-- 3D tilt for portfolio tiles (mouse only; touch screens keep flat cards) -->
+<script>
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('.bento .tile').forEach(function (tile) {
+      tile.addEventListener('pointermove', function (e) {
+        var r = tile.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;
+        var y = (e.clientY - r.top) / r.height;
+        tile.style.setProperty('--ry', ((x - 0.5) * 14).toFixed(2) + 'deg');
+        tile.style.setProperty('--rx', ((0.5 - y) * 12).toFixed(2) + 'deg');
+        tile.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        tile.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      tile.addEventListener('pointerleave', function () {
+        tile.style.setProperty('--rx', '0deg');
+        tile.style.setProperty('--ry', '0deg');
+      });
+    });
+  })();
+</script>
+
 <!-- end custom footer snippets -->

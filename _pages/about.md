@@ -51,6 +51,13 @@ redirect_from:
     </div>
   </div>
 
+  <a class="tile tile--wide tile--featured" href="/projects/">
+    <h3>Featured project</h3>
+    <strong>Sperm morphology classification (Xception + CBAM)</strong>
+    <p>Deep learning pipeline on the SMIDS dataset: 96.2% accuracy and 0.99 AUC on 3,000 microscopic images.</p>
+    <span class="tile__link">See all projects →</span>
+  </a>
+
   <div class="tile tile--wide tile--news">
     <h3>Recent news</h3>
     <ul>

@@ -277,10 +277,7 @@ h1, h2, h3, h4 {
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.tile:hover {
-    transform: translateY(-2px);
-    border-color: rgba(99, 102, 241, 0.4);
-}
+
 
 .tile h3 {
     margin: 0 0 0.5em;
@@ -303,7 +300,8 @@ h1, h2, h3, h4 {
     grid-row: span 2;
 }
 
-.tile--intro {
+.tile--intro,
+.tile--explore {
     justify-content: flex-start;
     gap: 0.6em;
 }
@@ -369,7 +367,7 @@ h1, h2, h3, h4 {
 }
 
 .tile__num {
-    font-size: 2.4em;
+    font-size: 2.1em;
     font-weight: 800;
     line-height: 1;
     color: var(--ui-accent);
@@ -442,5 +440,117 @@ h1, h2, h3, h4 {
     .tile--tall {
         grid-column: span 1;
         grid-row: auto;
+    }
+}
+
+/* ---------- 3D portfolio ----------
+   Tiles sit on a perspective stage, tilt toward the pointer (script in
+   _includes/footer/custom.html), lift off the page and show a glare that
+   follows the cursor. Touch screens and reduced-motion users get flat cards. */
+.bento {
+    perspective: 1400px;
+    gap: 22px;
+    padding: 0.5em 0 1em;
+}
+
+.tile {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease, border-color 0.3s ease;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 2px 4px rgba(15, 23, 42, 0.06),
+        0 22px 40px -20px rgba(15, 23, 42, 0.32);
+}
+
+.tile:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 4px 8px rgba(15, 23, 42, 0.08),
+        0 40px 70px -28px rgba(79, 70, 229, 0.45);
+}
+
+/* Content floats slightly in front of the tile */
+.tile > * {
+    transform: translateZ(28px);
+}
+
+/* Glare that follows the pointer */
+.tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.28), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tile:hover::after {
+    opacity: 1;
+}
+
+.tile--accent::after {
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.35), transparent 50%);
+}
+
+a.tile {
+    color: inherit;
+    text-decoration: none;
+}
+
+.tile--featured strong {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 1.3em;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.tile__link {
+    align-self: flex-start;
+    margin-top: 0.6em;
+    font-weight: 700;
+    color: var(--ui-accent);
+}
+
+/* Profile photo floats and tilts on hover */
+.sidebar {
+    transform-style: preserve-3d;
+    transition: box-shadow 0.4s ease;
+    box-shadow: 0 30px 60px -30px rgba(15, 23, 42, 0.35);
+}
+
+.sidebar .author__avatar {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.6s ease;
+    box-shadow: 0 18px 30px -12px rgba(99, 102, 241, 0.55);
+}
+
+.sidebar:hover .author__avatar {
+    transform: rotateY(-16deg) rotateX(8deg) translateZ(18px);
+    box-shadow: 0 30px 40px -14px rgba(168, 85, 247, 0.6);
+}
+
+/* Flat cards for touch screens and users who prefer less motion */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+    .tile,
+    .tile > *,
+    .sidebar .author__avatar {
+        transform: none !important;
+        transition: none;
+    }
+
+    .tile::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento {
+        gap: 14px;
     }
 }
