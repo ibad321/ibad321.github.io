@@ -43,4 +43,11 @@ Previously, I was a Research Assistant at Riphah International University, Malak
 * **June 2026:** Paper published in *Frontiers in Immunology*.
 * **2025:** Paper published at INMIC 2025 (IEEE Xplore).
 
-See all updates on the [News page](/news/).
+<div class="explore">
+  <a href="/news/">News<span>Latest updates</span></a>
+  <a href="/publications/">Publications<span>9 papers, 4 under review</span></a>
+  <a href="/projects/">Projects<span>Vision, federated and NLP work</span></a>
+  <a href="/talks/">Talks<span>INMIC 2025</span></a>
+  <a href="/awards/">Awards<span>Grants and recognition</span></a>
+  <a href="/cv/">CV<span>Education and experience</span></a>
+</div>
