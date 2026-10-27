@@ -197,6 +197,7 @@ a.button:hover {
 .page__footer {
     border-top: 1px solid var(--line);
     background: var(--global-footer-bg-color);
+    font-size: 0.8em;
 }
 
 /* ---------- Layout: sidebar and content side by side on desktop ----------
@@ -254,4 +255,17 @@ a.button:hover {
         height: 100%;
         object-fit: cover;
     }
+}
+
+/* Figures on content pages */
+.page-figure {
+    margin: 0 0 1.5em;
+}
+
+.page-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
 }

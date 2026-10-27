@@ -19,7 +19,8 @@ Previously, I was a Research Assistant at Riphah International University, Malak
 * Federated learning
 * Privacy-preserving machine learning
 * Medical imaging
-* Vision-Language-Action (VLA) models
+* LLM
+* Software engineering
 
 ## Recent news
 
