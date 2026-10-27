@@ -1,0 +1,343 @@
+/* ==========================================================================
+   CUSTOM LAYER - modern accent palette, cards and hero
+   Loaded last so it overrides the theme. Colors go through the theme's own
+   CSS variables, so the light/dark toggle keeps working.
+   ========================================================================== */
+
+:root {
+    --ui-accent        : #6366f1;
+    --ui-accent-2      : #a855f7;
+    --ui-accent-3      : #22d3ee;
+    --ui-gradient      : linear-gradient(135deg, #6366f1 0%, #a855f7 55%, #22d3ee 100%);
+    --ui-card-bg       : #ffffff;
+    --ui-card-border   : rgba(15, 23, 42, 0.08);
+    --ui-card-shadow   : 0 10px 30px -12px rgba(30, 41, 59, 0.18);
+    --ui-glass-bg     : rgba(255, 255, 255, 0.72);
+
+    --global-base-color        : #6366f1;
+    --global-link-color        : #4f46e5;
+    --global-link-color-hover  : #a855f7;
+    --global-link-color-visited: #7c3aed;
+    --global-text-color        : #1e293b;
+    --global-footer-bg-color   : #f8fafc;
+}
+
+html[data-theme="dark"] {
+    --ui-card-bg       : #111827;
+    --ui-card-border   : rgba(148, 163, 184, 0.16);
+    --ui-card-shadow   : 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+    --ui-glass-bg      : rgba(11, 15, 30, 0.7);
+
+    --global-base-color        : #818cf8;
+    --global-link-color        : #a5b4fc;
+    --global-link-color-hover  : #f0abfc;
+    --global-link-color-visited: #c4b5fd;
+    --global-bg-color          : #0b0f1e;
+    --global-text-color        : #e2e8f0;
+    --global-footer-bg-color   : #0b0f1e;
+}
+
+/* Soft colored glows behind the page */
+html {
+    background-color: var(--global-bg-color);
+    background-image:
+        radial-gradient(900px 500px at 0% -10%, rgba(99, 102, 241, 0.14), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, rgba(168, 85, 247, 0.12), transparent 60%);
+    background-attachment: fixed;
+}
+
+body {
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: transparent;
+}
+
+h1, h2, h3, h4 {
+    letter-spacing: -0.01em;
+}
+
+/* Gradient page titles */
+.page__title,
+.archive__title {
+    background: var(--ui-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Glass header with a gradient hairline underneath */
+.masthead {
+    background: var(--ui-glass-bg);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid transparent;
+    background-image: linear-gradient(var(--ui-glass-bg), var(--ui-glass-bg)), var(--ui-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.masthead__menu-item a,
+.site-title {
+    font-weight: 600;
+}
+
+.masthead__menu-item--lg a {
+    border-radius: 999px;
+    padding: 0.4em 0.85em;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.masthead__menu-item--lg a:hover {
+    background: rgba(99, 102, 241, 0.12);
+}
+
+/* Sidebar profile card */
+.sidebar {
+    background: var(--ui-card-bg);
+    border: 1px solid var(--ui-card-border);
+    border-radius: 20px;
+    box-shadow: var(--ui-card-shadow);
+    padding: 1.5em 1.25em;
+}
+
+.author__avatar {
+    background: var(--ui-gradient);
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.author__avatar img {
+    border: 4px solid var(--ui-card-bg);
+    border-radius: 50%;
+}
+
+.author__name {
+    background: var(--ui-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.author__urls a {
+    border-radius: 999px;
+}
+
+.author__urls .btn--inverse {
+    background: var(--ui-gradient);
+    border: 0;
+    color: #fff;
+    border-radius: 999px;
+}
+
+/* Cards for list items (publications, talks, news) */
+.archive__item {
+    background: var(--ui-card-bg);
+    border: 1px solid var(--ui-card-border);
+    border-radius: 16px;
+    box-shadow: var(--ui-card-shadow);
+    padding: 1.1em 1.4em;
+    margin-bottom: 1.1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.archive__item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 18px 40px -16px rgba(99, 102, 241, 0.35);
+}
+
+.archive__item-title {
+    font-size: 1.15em;
+    line-height: 1.35;
+    margin-bottom: 0.4em;
+}
+
+/* Section headings with a gradient rule */
+.archive > h2,
+.page h2 {
+    position: relative;
+    padding-bottom: 0.35em;
+}
+
+.archive > h2::after,
+.page h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    border-radius: 3px;
+    margin-top: 0.35em;
+    background: var(--ui-gradient);
+}
+
+/* Buttons */
+.btn--primary,
+.btn--inverse {
+    border-radius: 999px;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn--primary {
+    background: var(--ui-gradient);
+    border: 0;
+    color: #fff;
+    box-shadow: 0 8px 22px -8px rgba(99, 102, 241, 0.7);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -8px rgba(168, 85, 247, 0.7);
+    color: #fff;
+}
+
+/* Footer */
+.page__footer {
+    border-top: 1px solid transparent;
+    background-image: linear-gradient(var(--global-footer-bg-color), var(--global-footer-bg-color)), var(--ui-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-top-width: 2px;
+}
+
+/* ---------- Hero block (About page) ---------- */
+.hero {
+    position: relative;
+    margin: 0 0 2.25em;
+    padding: 2em 1.75em;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--ui-card-bg);
+    border: 1px solid var(--ui-card-border);
+    box-shadow: var(--ui-card-shadow);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto auto;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: var(--ui-gradient);
+    opacity: 0.18;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.hero__eyebrow {
+    display: inline-block;
+    padding: 0.3em 0.9em;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--ui-accent);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.hero__title {
+    margin: 0.6em 0 0.3em;
+    font-size: 2.6em;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero__title .grad {
+    background: var(--ui-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero__lead {
+    max-width: 40em;
+    font-size: 1.1em;
+    opacity: 0.85;
+}
+
+.hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin: 1.2em 0 1.6em;
+}
+
+.hero__cta a {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95em;
+    text-decoration: none;
+    border: 1px solid var(--ui-card-border);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.hero__cta a.primary {
+    background: var(--ui-gradient);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 22px -8px rgba(99, 102, 241, 0.7);
+}
+
+.hero__cta a:hover {
+    transform: translateY(-2px);
+}
+
+.hero__stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75em;
+}
+
+.hero__stats div {
+    padding: 0.85em 1em;
+    border-radius: 14px;
+    background: rgba(99, 102, 241, 0.06);
+    border: 1px solid var(--ui-card-border);
+}
+
+.hero__stats strong {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 800;
+    background: var(--ui-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero__stats span {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero {
+        padding: 1.4em 1.1em;
+    }
+
+    .hero__title {
+        font-size: 2em;
+    }
+
+    .hero__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Keep the profile photo round on small screens */
+@media (max-width: 600px) {
+    .author__avatar {
+        width: 84px;
+        height: 84px;
+        float: left;
+        margin-right: 1em;
+    }
+
+    .author__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
